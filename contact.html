@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="normalize.css">
+      <link href="https://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="css/styles.css">
+      <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900&display=swap" rel="stylesheet"> -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+      <link rel="stylesheet" href="css/form.css">
+   </head>
+   <body class="preload">
+      <main id="wrapper">
+         <header>
+            <div class="container container-flex">
+               <div class="site-title">
+                  <h1>Living the social life</h1>
+                  <p class="subtitle">A blog exploring minimalism in life</p>
+               </div>
+               <nav>
+                  <ul>
+                     <li><a href="index.html">Home</a></li>
+                     <li><a class="current-page" href="about-me.html">About me</a></li>
+                     <li><a href="posts.html">Posts</a></li>
+                     <li><a href="contact.html">Contact</a></li>
+                  </ul>
+               </nav>
+            </div>
+            <!-- / .container -->
+         </header>
+         <section id="services">
+            <article>
+               <h1>Services Offered</h1>
+               <ul>
+                  <li>
+                     <p>Professional and knowledgeable staff - over 100 years combined experience among sales persons.</p>
+                  </li>
+                  <li>
+                     <p>Help with selection of the right species for your locality. Few nurseries have the experience that we have and, we have the widest selection of palm trees and cycads for sale.</p>
+                  </li>
+                  <li>
+                     <p>Design advice and species layout</p>
+                  </li>
+                  <li>
+                     <p>Delivery available to most local areas and independent truck delivery to distant areas.</p>
+                  </li>
+                  <li>
+                     <p>Water conservation advice</p>
+                  </li>
+                  <li>
+                     <p>Plant locater service - if we don't have what you are looking for, many times we're able to save you time and     locate needed plants from other reputable suppliers.  </p>
+                  </li>
+                  <li>
+                     <p>Follow up service - It is our practice to call customers, see how their plants are doing and give advice when needed.</p>
+                  </li>
+               </ul>
+            </article>
+         </section>
+         <section id="contact">
+            <h1>Come say hi!</h1>
+            <p class="display">I'd love to see you and show you my work. Feel free to ask any questions.</p>
+            <form action="#" method="post" id="contactForm" class="contactForm">
+               <fieldset>
+                  <legend>Get in touch</legend>
+                  <label for="fullName">Your Name:</label>
+                  <input type="text" name="fullName" id="fullName" required>
+                  <label for="email">Email:</label>
+                  <input type="email" name="email" id="email" required>
+                  <label for="phone">Phone:</label>
+                  <input type="tel" name="phone" id="phone" pattern="^\d{3}-\d{3}-\d{4}$" maxlength="12" placeholder="111-222-3333" required>
+                  <label for="msg">Your Message / Question:</label>
+                  <textarea name="msg" id="msg"></textarea>
+                  <div class="checks">
+                     <input type="checkbox" name="copyEmail" id="copyEmail">
+                     <span></span>
+                     <label for="copyEmail">Send copy to my-email</label>
+                  </div>
+                  <input type="submit" id="submit" value="Send Message">
+               </fieldset>
+            </form>
+         </section>
+      </main>
+      <footer>
+         <p><strong>Living the Simple Life</strong></p>
+         <p>Copyright 2019</p>
+      </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script>
+         $(document).ready(function() {
+           $('body').removeClass('preload'); // fix for animation movement on page load
+         });
+         
+         let resizeTimer;
+         window.addEventListener("resize", () => {
+           document.body.classList.add("resize-animation-stopper");
+           clearTimeout(resizeTimer);
+           resizeTimer = setTimeout(() => {
+             document.body.classList.remove("resize-animation-stopper");
+           }, 400);
+         });
+         
+         // add fix for mobile: 
+         document.addEventListener("touchstart", function() {}, true); // This snippet will enable hover effects for touchscreens  
+         
+         // code for input mask on phone number
+         // fix for tel keypad missing dashes on mobile device, this will automatically add them
+         $('input[type="tel"]#phone').keyup(function(event) {
+             var t = event.target, v = t.value;
+             if (v.length == 3) { t.value = v + '-'; }
+             if (v.length == 7) { t.value = v + '-'; }
+         });
+         
+         
+      </script>
+   </body>
+</html>
